@@ -1,0 +1,21 @@
+FROM registry.access.redhat.com/ubi8/dotnet-70:7.0-18
+LABEL "io.openshift.s2i.build.image"="registry.access.redhat.com/ubi8/dotnet-70:7.0-18" \
+      "io.openshift.s2i.build.commit.author"="Ryan Nix <r-nix@northwestern.edu>" \
+      "io.openshift.s2i.build.commit.date"="Sun Jul 23 12:28:29 2023 -0500" \
+      "io.openshift.s2i.build.commit.id"="75ac9b7266d548f52509dda45590fa127eb96a0c" \
+      "io.openshift.s2i.build.commit.ref"="main" \
+      "io.openshift.s2i.build.commit.message"="Made some changes" \
+      "io.openshift.s2i.build.source-location"="https://github.com/ryannix123/dotnet-example.git"
+
+USER root
+# Copying in source code
+COPY upload/src /tmp/src
+# Change file ownership to the assemble user. Builder image must support chown command.
+RUN chown -R 1001:0 /tmp/src
+USER 1001
+# Assemble script sourced from builder image based on user input or image metadata.
+# If this file does not exist in the image, the build will fail.
+RUN /usr/libexec/s2i/assemble
+# Run script sourced from builder image based on user input or image metadata.
+# If this file does not exist in the image, the build will fail.
+CMD /usr/libexec/s2i/run
