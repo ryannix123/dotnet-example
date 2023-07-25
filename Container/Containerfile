@@ -1,11 +1,11 @@
 FROM registry.access.redhat.com/ubi8/dotnet-70:7.0-18
-LABEL "io.openshift.s2i.build.image"="registry.access.redhat.com/ubi8/dotnet-70:7.0-18" \
-      "io.openshift.s2i.build.commit.author"="Ryan Nix <r-nix@northwestern.edu>" \
-      "io.openshift.s2i.build.commit.date"="Sun Jul 23 12:28:29 2023 -0500" \
-      "io.openshift.s2i.build.commit.id"="75ac9b7266d548f52509dda45590fa127eb96a0c" \
-      "io.openshift.s2i.build.commit.ref"="main" \
-      "io.openshift.s2i.build.commit.message"="Made some changes" \
-      "io.openshift.s2i.build.source-location"="https://github.com/ryannix123/dotnet-example.git"
+LABEL "io.openshift.s2i.build.commit.message"="Changing logo" \
+      "io.openshift.s2i.build.source-location"="https://github.com/ryannix123/dotnet-example.git" \
+      "io.openshift.s2i.build.image"="registry.access.redhat.com/ubi8/dotnet-70:7.0-18" \
+      "io.openshift.s2i.build.commit.author"="Ryan Nix <rnix@redhat.com>" \
+      "io.openshift.s2i.build.commit.date"="Tue Jul 25 06:43:37 2023 -0500" \
+      "io.openshift.s2i.build.commit.id"="01848042724a7e2a4c86a40fa5cd8bbd7c541941" \
+      "io.openshift.s2i.build.commit.ref"="main"
 
 USER root
 # Copying in source code
