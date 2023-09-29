@@ -6,6 +6,8 @@ metadata:
     name: dotnetexample
 spec:
   path: "/"
+  tls:
+    termination: edge
   to:
     kind: Service
     name: dotnetexample
